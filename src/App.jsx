@@ -167,7 +167,9 @@ function MoviesList({ query, onMovieSelect, sortBy, setSortBy }) {
           setSortBy("default");
           const res = await fetch(
             `http://www.omdbapi.com/?apikey=${KEY}&s=${query}&type=movie`,
-            { signal: controller.signal }
+            {
+              signal: controller.signal,
+            }
           );
           const data = await res.json();
           if (data.Response === "False") {
